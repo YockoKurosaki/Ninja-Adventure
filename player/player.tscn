@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsgu73ide14mk"]
+[gd_scene load_steps=10 format=3 uid="uid://dsgu73ide14mk"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_lv6bp"]
 [ext_resource type="Texture2D" uid="uid://c8wsa7e2vii5t" path="res://sprites/greenNinja/spriteSheet.png" id="1_vl4h2"]
@@ -99,12 +99,18 @@ _data = {
 "walk_up": SubResource("Animation_cvhdg")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8q3a"]
+size = Vector2(15, 4)
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_lv6bp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vl4h2")
+offset = Vector2(0, -8)
 hframes = 4
 vframes = 7
 
@@ -112,3 +118,7 @@ vframes = 7
 libraries = {
 "": SubResource("AnimationLibrary_jjjkj")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_p8q3a")
