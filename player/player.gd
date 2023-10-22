@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var animations = $AnimationPlayer
 @onready var effects = $Effects
 @onready var hurtTimer = $hurtTimer
+@onready var hurtBox = $hurtBox
 
 signal healthChanged
 @export var maxHealth: int = 3
@@ -13,7 +14,7 @@ signal healthChanged
 @export var knockbackPower: int = 500
 
 var isHurt: bool = false
-var enemyCollisions = []
+var canCollectItem = null
 
 func _ready():
 	effects.play("RESET")
@@ -23,6 +24,11 @@ func handleInput():
 	var moveDirection = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	# 2. Set velocity to movement direction * speed
 	velocity = moveDirection*speed
+	
+	#Collect item
+	if Input.is_action_just_pressed("pick_up"):
+		if canCollectItem != null:
+			canCollectItem.collect()
 	
 func updateAnimation():
 	# If is not moving
@@ -44,8 +50,9 @@ func _physics_process(_delta):
 	move_and_slide() #This is a built in function that the tutorial decided to use instead move_and_collide
 	updateAnimation()
 	if !isHurt:
-		for enemyArea in enemyCollisions:
-			hurtByEnemy(enemyArea)
+		for area in hurtBox.get_overlapping_areas():
+			if area.name == "hitBox":
+				hurtByEnemy(area)
 
 func hurtByEnemy(area):
 	if currentHealth > 0:
@@ -60,15 +67,14 @@ func hurtByEnemy(area):
 		effects.play("RESET")
 		isHurt = false
 
-func _on_hurt_box_area_entered(area):
-	if area.name == "hitBox":
-		enemyCollisions.append(area)
-
 func knockback(enemyVelocity):
 	var knockbackDirection = (enemyVelocity-velocity).normalized() * knockbackPower
 	velocity = knockbackDirection
 	move_and_slide()
 
+func _on_hurt_box_area_entered(area):
+	if area.has_method("collect"):
+		canCollectItem = area
 
 func _on_hurt_box_area_exited(area):
-	enemyCollisions.erase(area)
+	canCollectItem = null
