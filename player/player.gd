@@ -29,7 +29,7 @@ func handleInput():
 	#Collect item
 	if Input.is_action_just_pressed("pick_up"):
 		if canCollectItem != null:
-			canCollectItem.collect()
+			canCollectItem.collect(inventory)
 	
 func updateAnimation():
 	# If is not moving

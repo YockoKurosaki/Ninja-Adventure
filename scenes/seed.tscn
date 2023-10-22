@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://j8wqe0xw8h80"]
+[gd_scene load_steps=5 format=3 uid="uid://j8wqe0xw8h80"]
 
 [ext_resource type="PackedScene" uid="uid://cmu7rv2kcqonf" path="res://scenes/collectable.tscn" id="1_i6rgr"]
 [ext_resource type="Texture2D" uid="uid://copql1fbg5ctf" path="res://sprites/items/SeedBig2.png" id="2_42i0g"]
+[ext_resource type="Resource" uid="uid://hn12gg4x7pu5" path="res://inventory/seed.tres" id="2_rm2y1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7tyw"]
 resource_local_to_scene = true
 size = Vector2(10, 12)
 
 [node name="Collectable" instance=ExtResource("1_i6rgr")]
+itemRes = ExtResource("2_rm2y1")
 
 [node name="CollisionShape2D" parent="." index="0"]
 shape = SubResource("RectangleShape2D_c7tyw")
