@@ -6,6 +6,7 @@ extends CharacterBody2D
 @onready var effects = $Effects
 @onready var hurtTimer = $hurtTimer
 @onready var hurtBox = $hurtBox
+@onready var weapon = $weapon
 
 signal healthChanged
 @export var maxHealth: int = 3
@@ -16,8 +17,11 @@ signal healthChanged
 
 var isHurt: bool = false
 var canCollectItem = null
+var lastAnimDirection:String = "down"
+var isAttacking: bool = false
 
 func _ready():
+	weapon.visible = false
 	effects.play("RESET")
 
 func handleInput():
@@ -31,7 +35,19 @@ func handleInput():
 		if canCollectItem != null:
 			canCollectItem.collect(inventory)
 	
+	if Input.is_action_just_pressed("attack"):
+		attack()
+
+func attack():
+	animations.play("attack_" + lastAnimDirection)
+	isAttacking = true
+	weapon.visible = true
+	await animations.animation_finished
+	isAttacking = false
+	weapon.visible = false
+	
 func updateAnimation():
+	if isAttacking: return
 	# If is not moving
 	if velocity.length() == 0:
 		if animations.is_playing():
@@ -43,6 +59,7 @@ func updateAnimation():
 		elif velocity.x > 0: direction = "right"
 		elif velocity.y < 0: direction = "up"
 		animations.play("walk_" + direction)
+		lastAnimDirection = direction
 
 # This is a built in function like the Update in Unity but also related to physics
 func _physics_process(_delta):
