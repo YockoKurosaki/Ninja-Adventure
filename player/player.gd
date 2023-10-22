@@ -3,12 +3,17 @@ extends CharacterBody2D
 # The encapsulate "export" allows me to edit this variable also from the inspector
 @export var speed: int = 40 
 @onready var animations = $AnimationPlayer
+@onready var effects = $Effects
+@onready var hurtTimer = $hurtTimer
 
 signal healthChanged
 @export var maxHealth: int = 3
 @onready var currentHealth: int = maxHealth
 
 @export var knockbackPower: int = 500
+
+func _ready():
+	effects.play("RESET")
 
 func handleInput():
 	# 1. Get movement direction from input
@@ -42,6 +47,10 @@ func _on_hurt_box_area_entered(area):
 			currentHealth -= 1;
 			healthChanged.emit(currentHealth)
 			knockback(area.get_parent().velocity)
+			effects.play("hurt_blink")
+			hurtTimer.start()
+			await hurtTimer.timeout
+			effects.play("RESET")
 
 func knockback(enemyVelocity):
 	var knockbackDirection = (enemyVelocity-velocity).normalized() * knockbackPower
