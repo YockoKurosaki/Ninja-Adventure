@@ -12,6 +12,9 @@ signal healthChanged
 
 @export var knockbackPower: int = 500
 
+var isHurt: bool = false
+var enemyCollisions = []
+
 func _ready():
 	effects.play("RESET")
 
@@ -40,19 +43,32 @@ func _physics_process(_delta):
 	# 3. Move player
 	move_and_slide() #This is a built in function that the tutorial decided to use instead move_and_collide
 	updateAnimation()
+	if !isHurt:
+		for enemyArea in enemyCollisions:
+			hurtByEnemy(enemyArea)
+
+func hurtByEnemy(area):
+	if currentHealth > 0:
+		currentHealth -= 1;
+		
+		isHurt = true
+		healthChanged.emit(currentHealth)
+		knockback(area.get_parent().velocity)
+		effects.play("hurt_blink")
+		hurtTimer.start()
+		await hurtTimer.timeout
+		effects.play("RESET")
+		isHurt = false
 
 func _on_hurt_box_area_entered(area):
 	if area.name == "hitBox":
-		if currentHealth > 0:
-			currentHealth -= 1;
-			healthChanged.emit(currentHealth)
-			knockback(area.get_parent().velocity)
-			effects.play("hurt_blink")
-			hurtTimer.start()
-			await hurtTimer.timeout
-			effects.play("RESET")
+		enemyCollisions.append(area)
 
 func knockback(enemyVelocity):
 	var knockbackDirection = (enemyVelocity-velocity).normalized() * knockbackPower
 	velocity = knockbackDirection
 	move_and_slide()
+
+
+func _on_hurt_box_area_exited(area):
+	enemyCollisions.erase(area)
