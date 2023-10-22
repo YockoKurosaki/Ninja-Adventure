@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dmw7luxp5c2bo"]
+[gd_scene load_steps=18 format=3 uid="uid://dmw7luxp5c2bo"]
 
 [ext_resource type="PackedScene" uid="uid://dsgu73ide14mk" path="res://player/player.tscn" id="1_7f4g4"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_83hsn"]
@@ -11,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://qg72pnmfl2fk" path="res://scenes/enemy.tscn" id="6_00qcn"]
 [ext_resource type="PackedScene" uid="uid://dr4naxg1ym4t8" path="res://scenes/sword.tscn" id="6_hjkpq"]
 [ext_resource type="PackedScene" uid="uid://0nlrj26ejmsl" path="res://scenes/hearts_container.tscn" id="8_c712e"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="8_g0xxs"]
 [ext_resource type="PackedScene" uid="uid://cfnqlg7piff8i" path="res://scenes/inventory_gui.tscn" id="11_g4dub"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wf7il"]
@@ -2831,7 +2830,6 @@ tilemap = NodePath("../../TileMap")
 
 [node name="enemy" parent="." node_paths=PackedStringArray("endPoint") instance=ExtResource("6_00qcn")]
 position = Vector2(208, 64)
-script = ExtResource("8_g0xxs")
 endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="enemy"]
@@ -2839,7 +2837,6 @@ position = Vector2(64, 48)
 
 [node name="enemy2" parent="." node_paths=PackedStringArray("endPoint") instance=ExtResource("6_00qcn")]
 position = Vector2(104, 128)
-script = ExtResource("8_g0xxs")
 endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="enemy2"]

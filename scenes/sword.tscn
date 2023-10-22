@@ -9,6 +9,8 @@ resource_local_to_scene = true
 size = Vector2(5, 10)
 
 [node name="Sword" instance=ExtResource("1_0detc")]
+collision_layer = 4
+collision_mask = 0
 itemRes = ExtResource("2_rauxx")
 
 [node name="CollisionShape2D" parent="." index="0"]

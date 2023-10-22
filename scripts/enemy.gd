@@ -8,6 +8,7 @@ extends CharacterBody2D
 
 var startPosition
 var endPosition
+var isDead: bool = false
 
 func _ready():
 	startPosition = position
@@ -35,6 +36,14 @@ func updateAnimation():
 	animations.play(animationString)
 
 func _physics_process(delta):
+	if isDead: return
 	updateVelocity()
 	move_and_slide()
 	updateAnimation()
+
+func _on_hit_box_area_entered(area):
+	if area.get_parent().name == "weapon":
+		animations.play("death")
+		isDead = true
+		await animations.animation_finished
+		queue_free()
