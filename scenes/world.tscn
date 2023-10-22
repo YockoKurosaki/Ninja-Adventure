@@ -2806,6 +2806,8 @@ position = Vector2(114, 62)
 [node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
 limit_left = 0
 limit_top = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 script = ExtResource("5_3exws")
 tilemap = NodePath("../../TileMap")
 
