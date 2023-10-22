@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4ep5080pypfh"]
+[gd_scene load_steps=4 format=3 uid="uid://c4ep5080pypfh"]
 
 [ext_resource type="Script" path="res://scripts/slot_gui.gd" id="1_381kn"]
 [ext_resource type="Texture2D" uid="uid://cd85efky3777w" path="res://sprites/rects/inventorySlot.png" id="1_wcmi7"]
+[ext_resource type="FontFile" uid="uid://pe52srg42gmb" path="res://fonts/NormalFont.ttf" id="3_psuob"]
 
 [node name="Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -25,3 +26,16 @@ offset_bottom = 20.0
 layout_mode = 2
 
 [node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(16, 14)
+layout_mode = 0
+offset_left = -7.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 5.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_psuob")
+theme_override_font_sizes/font_size = 4
+text = "100"
+horizontal_alignment = 2

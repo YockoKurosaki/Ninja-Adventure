@@ -14,8 +14,8 @@ func _ready():
 
 func update():
 	#just in case inventory.items.size() and slots.size() are different, take the smaller
-	for i in range(min(inventory.items.size(), slots.size())):
-		slots[i].update(inventory.items[i])
+	for i in range(min(inventory.slots.size(), slots.size())):
+		slots[i].update(inventory.slots[i])
 
 func open():
 	isOpen = !isOpen
