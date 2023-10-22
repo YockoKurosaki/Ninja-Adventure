@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsgu73ide14mk"]
+[gd_scene load_steps=11 format=3 uid="uid://dsgu73ide14mk"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_lv6bp"]
 [ext_resource type="Texture2D" uid="uid://c8wsa7e2vii5t" path="res://sprites/greenNinja/spriteSheet.png" id="1_vl4h2"]
@@ -102,6 +102,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8q3a"]
 size = Vector2(15, 4)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_323h1"]
+radius = 7.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -122,3 +125,12 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_p8q3a")
+
+[node name="hurtBox" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtBox"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_323h1")
+
+[connection signal="area_entered" from="hurtBox" to="." method="_on_hurt_box_area_entered"]

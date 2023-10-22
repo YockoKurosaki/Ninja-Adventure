@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dmw7luxp5c2bo"]
+[gd_scene load_steps=14 format=3 uid="uid://dmw7luxp5c2bo"]
 
 [ext_resource type="PackedScene" uid="uid://dsgu73ide14mk" path="res://player/player.tscn" id="1_7f4g4"]
+[ext_resource type="Script" path="res://scenes/world.gd" id="1_mjoq0"]
 [ext_resource type="Texture2D" uid="uid://da6bg5vo4w3kd" path="res://sprites/tileset/TilesetNature.png" id="2_cl5nx"]
 [ext_resource type="Texture2D" uid="uid://d0owcnxd6ugof" path="res://sprites/tileset/TilesetFloor.png" id="2_wcifh"]
 [ext_resource type="Texture2D" uid="uid://cymyi7gy6rvg3" path="res://sprites/animated/plant.png" id="3_o5j77"]
 [ext_resource type="Script" path="res://scripts/FollowCam.gd" id="5_3exws"]
 [ext_resource type="PackedScene" uid="uid://qg72pnmfl2fk" path="res://scenes/enemy.tscn" id="6_00qcn"]
 [ext_resource type="Script" path="res://scenes/enemy.gd" id="7_uw6dq"]
+[ext_resource type="PackedScene" uid="uid://0nlrj26ejmsl" path="res://scenes/hearts_container.tscn" id="8_c712e"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wf7il"]
 texture = ExtResource("2_wcifh")
@@ -2760,7 +2762,8 @@ texture = ExtResource("3_o5j77")
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, 8, 8, -8, 8, -8, 0.5, -5.5, -5, 6, -5)
 
 [sub_resource type="TileSet" id="TileSet_5ib74"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
 terrain_set_0/mode = 1
 terrain_set_0/terrain_0/name = "Sand"
 terrain_set_0/terrain_0/color = Color(0.686275, 0.305882, 0.501961, 1)
@@ -2774,6 +2777,7 @@ sources/3 = SubResource("TileSetAtlasSource_aknff")
 
 [node name="World" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_mjoq0")
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
@@ -2796,10 +2800,10 @@ layer_2/y_sort_origin = 0
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array(393218, 1, 0, 393226, 1, 0, 131075, 1, 0, 131082, 1, 0, 524296, 1, 0, 524300, 1, 0, 458755, 3, 0, 262149, 3, 0, 196609, 3, 0)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_7f4g4")]
+[node name="Player" parent="." instance=ExtResource("1_7f4g4")]
 position = Vector2(114, 62)
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" node_paths=PackedStringArray("tilemap")]
+[node name="Camera2D" type="Camera2D" parent="Player" node_paths=PackedStringArray("tilemap")]
 limit_left = 0
 limit_top = 0
 script = ExtResource("5_3exws")
@@ -2820,3 +2824,7 @@ endPoint = NodePath("Marker2D")
 
 [node name="Marker2D" type="Marker2D" parent="enemy2"]
 position = Vector2(0, 48)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="heartsContainer" parent="CanvasLayer" instance=ExtResource("8_c712e")]
