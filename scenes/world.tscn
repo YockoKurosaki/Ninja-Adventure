@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmw7luxp5c2bo"]
+[gd_scene load_steps=18 format=3 uid="uid://dmw7luxp5c2bo"]
 
 [ext_resource type="PackedScene" uid="uid://dsgu73ide14mk" path="res://player/player.tscn" id="1_7f4g4"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_83hsn"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cymyi7gy6rvg3" path="res://sprites/animated/plant.png" id="3_o5j77"]
 [ext_resource type="PackedScene" uid="uid://dy8gqn40rewwh" path="res://scenes/life_pot.tscn" id="4_uu23g"]
 [ext_resource type="Script" path="res://scripts/FollowCam.gd" id="5_3exws"]
+[ext_resource type="PackedScene" uid="uid://j8wqe0xw8h80" path="res://scenes/seed.tscn" id="5_5nugm"]
 [ext_resource type="PackedScene" uid="uid://qg72pnmfl2fk" path="res://scenes/enemy.tscn" id="6_00qcn"]
 [ext_resource type="PackedScene" uid="uid://0nlrj26ejmsl" path="res://scenes/hearts_container.tscn" id="8_c712e"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="8_g0xxs"]
@@ -2755,6 +2756,7 @@ texture = ExtResource("2_cl5nx")
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_vk556"]
 resource_name = "Collectables"
 scenes/1/scene = ExtResource("4_uu23g")
+scenes/2/scene = ExtResource("5_5nugm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aknff"]
 texture = ExtResource("3_o5j77")
@@ -2812,7 +2814,7 @@ layer_3/modulate = Color(1, 1, 1, 1)
 layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
-layer_3/tile_data = PackedInt32Array(786455, 2, 65536, 786448, 2, 65536, 851978, 2, 65536, 131080, 2, 65536, 1441803, 2, 65536)
+layer_3/tile_data = PackedInt32Array(786455, 2, 65536, 786448, 2, 65536, 851978, 2, 65536, 131080, 2, 65536, 1441803, 2, 65536, 393231, 2, 131072, 589827, 2, 131072, 65538, 2, 131072)
 
 [node name="Player" parent="." instance=ExtResource("1_7f4g4")]
 position = Vector2(114, 62)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsgu73ide14mk"]
+[gd_scene load_steps=15 format=3 uid="uid://dsgu73ide14mk"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_lv6bp"]
 [ext_resource type="Texture2D" uid="uid://c8wsa7e2vii5t" path="res://sprites/greenNinja/spriteSheet.png" id="1_vl4h2"]
+[ext_resource type="Resource" uid="uid://djkhpde1pt0bl" path="res://inventory/player_inventory.tres" id="2_dscw4"]
 
 [sub_resource type="Animation" id="Animation_o24ep"]
 length = 0.001
@@ -149,6 +150,7 @@ z_index = 1
 y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_lv6bp")
+inventory = ExtResource("2_dscw4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 clip_children = 2
