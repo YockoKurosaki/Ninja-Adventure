@@ -21,7 +21,7 @@ var lastAnimDirection:String = "down"
 var isAttacking: bool = false
 
 func _ready():
-	weapon.visible = false
+	weapon.enabled(false)
 	effects.play("RESET")
 
 func handleInput():
@@ -41,10 +41,10 @@ func handleInput():
 func attack():
 	animations.play("attack_" + lastAnimDirection)
 	isAttacking = true
-	weapon.visible = true
+	weapon.enabled(true)
 	await animations.animation_finished
 	isAttacking = false
-	weapon.visible = false
+	weapon.enabled(false)
 	
 func updateAnimation():
 	if isAttacking: return

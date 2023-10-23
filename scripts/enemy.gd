@@ -43,6 +43,7 @@ func _physics_process(delta):
 
 func _on_hit_box_area_entered(area):
 	if area.get_parent().name == "weapon":
+		$hitBox.set_deferred("monitorable", false) #Deactivates the collision if is dead
 		animations.play("death")
 		isDead = true
 		await animations.animation_finished
