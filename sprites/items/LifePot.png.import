@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5wmc1kj5dih8"
-path="res://.godot/imported/Item.png-5d694727147d320de3b2f1f7a57643d2.ctex"
+uid="uid://db71xlqaipdm6"
+path="res://.godot/imported/LifePot.png-4f5e2b39031804d33877ddf685d5e8f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/greenNinja/animations/Item.png"
-dest_files=["res://.godot/imported/Item.png-5d694727147d320de3b2f1f7a57643d2.ctex"]
+source_file="res://sprites/items/LifePot.png"
+dest_files=["res://.godot/imported/LifePot.png-4f5e2b39031804d33877ddf685d5e8f9.ctex"]
 
 [params]
 

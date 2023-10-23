@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clq1up4ka3r11"
-path="res://.godot/imported/Special2.png-9d628d13ba65b62a70d02c3254fdf722.ctex"
+uid="uid://deim8i2vbyyd8"
+path="res://.godot/imported/smoke.png-dd3d86303c4565f0d69a785fa35de197.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/greenNinja/animations/Special2.png"
-dest_files=["res://.godot/imported/Special2.png-9d628d13ba65b62a70d02c3254fdf722.ctex"]
+source_file="res://sprites/animated/smoke.png"
+dest_files=["res://.godot/imported/smoke.png-dd3d86303c4565f0d69a785fa35de197.ctex"]
 
 [params]
 

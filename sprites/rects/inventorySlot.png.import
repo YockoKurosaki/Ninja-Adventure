@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d064jfd0qju1a"
-path="res://.godot/imported/Dead.png-e7effaa983c35b21c1fc4f80d865980f.ctex"
+uid="uid://cd85efky3777w"
+path="res://.godot/imported/inventorySlot.png-18a84d1fd057b615ab1900d8e9515f70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/greenNinja/animations/Dead.png"
-dest_files=["res://.godot/imported/Dead.png-e7effaa983c35b21c1fc4f80d865980f.ctex"]
+source_file="res://sprites/rects/inventorySlot.png"
+dest_files=["res://.godot/imported/inventorySlot.png-18a84d1fd057b615ab1900d8e9515f70.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uc752yv6a7ad"
-path="res://.godot/imported/Idle.png-9bc0ca7541557eda1277929503239fee.ctex"
+uid="uid://b6y8ciplfrj4v"
+path="res://.godot/imported/healthbarUnder.png-d8201aadc367d17a8ad91148e5f1a8d6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/greenNinja/animations/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-9bc0ca7541557eda1277929503239fee.ctex"]
+source_file="res://sprites/rects/healthbarUnder.png"
+dest_files=["res://.godot/imported/healthbarUnder.png-d8201aadc367d17a8ad91148e5f1a8d6.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r0jbrfwkel74"
-path="res://.godot/imported/Jump.png-abd4ec7f4dc64fece3c6db9255e98396.ctex"
+uid="uid://ccmm1iaqqtcey"
+path="res://.godot/imported/Yakitori.png-4bc332d7062af2dd8e94fee340fc5dfc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/greenNinja/animations/Jump.png"
-dest_files=["res://.godot/imported/Jump.png-abd4ec7f4dc64fece3c6db9255e98396.ctex"]
+source_file="res://sprites/items/Yakitori.png"
+dest_files=["res://.godot/imported/Yakitori.png-4bc332d7062af2dd8e94fee340fc5dfc.ctex"]
 
 [params]
 
